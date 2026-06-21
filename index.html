@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urbanización Gilberto Aurich Bonilla — Lotes en Lambayeque, frente a la Panamericana</title>
+<meta name="description" content="Lotes en una urbanización YA construida en Lambayeque: pistas, parques, alumbrado y muro perimétrico. Frente a la Panamericana Norte. Cuotas desde S/ XX al mes, sin banco. Documentos en regla.">
+<link rel="icon" type="image/svg+xml" href="assets/logo-isotipo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- ============================================================
+     URBANIZACIÓN AURICH BONILLA — Landing (estilo Los Portales / blanco limpio)
+     Reemplazar: precios (XX), WhatsApp (51900000000), RUC / razón social,
+     link de Maps/Waze, pixel de Meta, horario.
+     ============================================================ -->
+<style>
+  :root{
+    --blue:#0a5dc2;        /* azul confianza (líder de mercado) */
+    --blue-d:#084a9c;
+    --blue-soft:#eaf2fc;
+    --green:#1f9d5c;       /* WhatsApp / disponible */
+    --green-d:#178049;
+    --gold:#d8a23a;        /* acento aspiracional puntual */
+    --ink:#1d2733;
+    --muted:#5e6b78;
+    --line:#e6ebf0;
+    --soft:#f7f9fb;
+    --white:#ffffff;
+    --radius:16px;
+    --shadow:0 14px 40px -18px rgba(13,42,71,.22);
+    --shadow-sm:0 6px 18px -12px rgba(13,42,71,.25);
+    --maxw:1140px;
+    font-synthesis:none;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
+  .eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--blue)}
+  h1,h2,h3{line-height:1.14;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  h2{font-size:clamp(1.55rem,4.4vw,2.4rem)}
+  .lead{color:var(--muted);font-size:1.05rem}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:800;border:none;cursor:pointer;border-radius:999px;padding:14px 24px;font-size:1rem;transition:transform .15s ease,box-shadow .15s ease,background .15s}
+  .btn:active{transform:scale(.97)}
+  .btn-wa{background:var(--green);color:#fff;box-shadow:0 10px 22px -10px rgba(31,157,92,.6)}
+  .btn-wa:hover{background:var(--green-d);transform:translateY(-2px)}
+  .btn-blue{background:var(--blue);color:#fff;box-shadow:0 10px 22px -12px rgba(10,93,194,.6)}
+  .btn-blue:hover{background:var(--blue-d);transform:translateY(-2px)}
+  .btn-outline{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
+
+  /* ---------- TOP BAR ---------- */
+  header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:11px;color:var(--ink)}
+  .logo-sym{width:42px;height:42px;flex:0 0 auto}
+  .brand-word b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.42rem;line-height:1;color:#0e2a47;display:block}
+  .brand-word small{display:block;font-size:.58rem;font-weight:600;color:var(--blue);letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
+  .top-actions{display:flex;align-items:center;gap:14px}
+  .top-phone{display:none;font-weight:700;color:var(--ink);font-size:.92rem}
+  .top-phone small{display:block;font-size:.66rem;color:var(--muted);font-weight:600}
+  .top .btn-wa{padding:9px 16px;font-size:.88rem}
+
+  /* ---------- HERO ---------- */
+  .hero{background:var(--white);border-bottom:1px solid var(--line)}
+  .hero .wrap{padding:34px 20px 0}
+  .hero-grid{display:grid;gap:24px}
+  .hero-media{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .hero-media img{width:100%;aspect-ratio:16/11;object-fit:cover}
+  .hero-media .tag{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.94);color:var(--ink);padding:8px 13px;border-radius:11px;font-size:.8rem;font-weight:700;box-shadow:var(--shadow-sm)}
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+  .chip{display:inline-flex;align-items:center;gap:6px;background:var(--blue-soft);color:var(--blue-d);padding:6px 12px;border-radius:999px;font-size:.76rem;font-weight:700}
+  .chip.live{background:#e7f6ee;color:var(--green-d)}
+  .hero h1{font-size:clamp(1.9rem,6vw,3rem);margin-bottom:14px}
+  .hero h1 b{color:var(--blue)}
+  .hero p.lead{max-width:560px}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:11px;margin-top:22px}
+
+  /* ---------- QUICK FACTS BAR ---------- */
+  .facts{background:var(--soft);border-bottom:1px solid var(--line)}
+  .facts .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border-radius:var(--radius);overflow:hidden;margin-top:34px;margin-bottom:34px;box-shadow:var(--shadow-sm)}
+  .fact{background:#fff;padding:16px 16px;text-align:center}
+  .fact .v{font-size:1.15rem;font-weight:900;color:var(--blue)}
+  .fact .l{font-size:.74rem;color:var(--muted);font-weight:600;margin-top:2px}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:52px 0}
+  .sec-head{max-width:680px;margin-bottom:28px}
+  .sec-head .eyebrow{margin-bottom:9px;display:block}
+  .center{margin-left:auto;margin-right:auto;text-align:center}
+
+  /* ---------- LEAD FORM (alta, estilo LP) ---------- */
+  .leadband{background:var(--blue);color:#fff}
+  .leadband .wrap{display:grid;gap:24px;align-items:center}
+  .leadband h2{color:#fff}
+  .leadband .lead{color:#cfe1f7}
+  .form-card{background:#fff;color:var(--ink);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+  .form-card h3{font-size:1.1rem;margin-bottom:4px}
+  .form-card .sub{font-size:.86rem;color:var(--muted);margin-bottom:8px}
+  .form-card label{display:block;font-size:.78rem;font-weight:800;color:var(--ink);margin:12px 0 5px}
+  .form-card input,.form-card select{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:11px;font-size:1rem;font-family:inherit;background:#fbfdff}
+  .form-card input:focus,.form-card select:focus{outline:none;border-color:var(--blue)}
+  .form-card .btn{width:100%;margin-top:16px}
+  .form-note{font-size:.74rem;color:var(--muted);margin-top:9px;text-align:center}
+
+  /* ---------- PRUEBA YA CONSTRUIDO ---------- */
+  .cards{display:grid;gap:18px;grid-template-columns:1fr}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+  .card img{width:100%;aspect-ratio:16/10;object-fit:cover}
+  .card .c-body{padding:15px 17px}
+  .card h3{font-size:1.04rem;color:var(--ink);margin-bottom:4px}
+  .card p{font-size:.89rem;color:var(--muted)}
+
+  /* ---------- LIFESTYLE (emocional) ---------- */
+  .lifestyle{display:grid;gap:22px;align-items:center}
+  .lifestyle-media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .lifestyle-media img{width:100%;aspect-ratio:16/10;object-fit:cover}
+
+  /* ---------- AMENITIES / EQUIPAMIENTO ---------- */
+  .ameni{background:var(--soft)}
+  .ameni-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
+  .ameni-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:center;box-shadow:var(--shadow-sm)}
+  .ameni-item .ic{width:52px;height:52px;border-radius:14px;background:var(--blue-soft);display:grid;place-items:center;margin:0 auto 10px;font-size:1.5rem}
+  .ameni-item h4{font-size:.96rem;color:var(--ink)}
+  .ameni-item p{font-size:.8rem;color:var(--muted);margin-top:3px}
+
+  /* ---------- UBICACIÓN ---------- */
+  .loc-grid{display:grid;gap:24px}
+  .loc-media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .loc-pills{display:grid;gap:9px}
+  .pill{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:12px 14px;font-weight:700;color:var(--ink);box-shadow:var(--shadow-sm)}
+  .pill .d{margin-left:auto;font-size:.78rem;color:var(--muted);font-weight:600}
+  .map-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .map-actions a{font-size:.86rem;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:9px 16px}
+
+  /* ---------- GALERÍA / RENDERS ---------- */
+  .render-grid{display:grid;gap:14px;grid-template-columns:1fr}
+  .render{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);position:relative;box-shadow:var(--shadow-sm)}
+  .render img{aspect-ratio:16/10;object-fit:cover;width:100%}
+  .render .cap{position:absolute;left:11px;bottom:11px;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 11px;border-radius:9px;font-size:.76rem;font-weight:700}
+
+  /* ---------- PLANES ---------- */
+  .plan-grid{display:grid;gap:18px;grid-template-columns:1fr}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow-sm);position:relative}
+  .plan.featured{border:2px solid var(--blue);box-shadow:var(--shadow)}
+  .plan .flag{position:absolute;top:-12px;left:22px;background:var(--blue);color:#fff;font-size:.7rem;font-weight:800;padding:5px 12px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
+  .plan h3{color:var(--ink);font-size:1.12rem;margin-bottom:4px}
+  .plan .price{font-size:1.9rem;font-weight:900;color:var(--blue);margin:4px 0}
+  .plan .price small{font-size:.82rem;font-weight:600;color:var(--muted)}
+  .plan ul{list-style:none;margin:12px 0 18px;display:grid;gap:8px}
+  .plan li{font-size:.9rem;display:flex;gap:8px;align-items:flex-start;color:var(--ink)}
+  .plan li::before{content:"✓";color:var(--green);font-weight:900}
+  .plan .btn{width:100%}
+  .nobank{margin-top:18px;background:var(--blue-soft);border-radius:14px;padding:14px 16px;font-size:.9rem;color:var(--blue-d);font-weight:600;display:flex;gap:10px;align-items:center}
+
+  /* ---------- SEGURIDAD JURÍDICA ---------- */
+  .legal-points{display:grid;gap:13px;grid-template-columns:1fr}
+  .legal-points .lp{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px 16px;box-shadow:var(--shadow-sm)}
+  .legal-points .lp span{font-size:1.4rem;line-height:1}
+  .legal-points .lp p{font-size:.9rem;color:var(--muted)}
+  .legal-points .lp b{color:var(--ink)}
+
+  /* ---------- PASOS ---------- */
+  .steps-grid{display:grid;gap:14px;counter-reset:s;grid-template-columns:1fr}
+  .step{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:var(--shadow-sm)}
+  .step .n{counter-increment:s;flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900}
+  .step .n::before{content:counter(s)}
+  .step h4{color:var(--ink);font-size:1rem}
+  .step p{font-size:.88rem;color:var(--muted)}
+
+  /* ---------- OFERTA / REFERIDOS ---------- */
+  .offer{background:linear-gradient(120deg,var(--blue),var(--blue-d));color:#fff;border-radius:var(--radius);padding:28px 24px;text-align:center;box-shadow:var(--shadow)}
+  .offer h2{color:#fff;margin-bottom:8px}
+  .offer p{color:#d4e4f8;max-width:520px;margin:0 auto 18px}
+
+  /* ---------- FAQ ---------- */
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:13px;padding:2px 18px;margin-bottom:11px;box-shadow:var(--shadow-sm)}
+  .faq summary{cursor:pointer;font-weight:700;color:var(--ink);padding:15px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:1.5rem;color:var(--blue);font-weight:400;line-height:1}
+  .faq details[open] summary::after{content:"–"}
+  .faq details p{padding:0 0 15px;color:var(--muted);font-size:.93rem}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--soft);color:var(--muted);padding:34px 0 110px;font-size:.86rem;border-top:1px solid var(--line)}
+  footer .wrap{display:grid;gap:18px}
+  footer .brand{margin-bottom:6px}
+  footer strong{color:var(--ink)}
+  footer a{color:var(--blue);font-weight:600}
+  footer .legalrow{font-size:.76rem;color:#8895a2;border-top:1px solid var(--line);padding-top:16px;line-height:1.7;grid-column:1/-1}
+  .libro{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);border-radius:8px;padding:8px 12px;font-size:.78rem;font-weight:800;color:var(--ink);margin-top:6px}
+
+  /* ---------- STICKY WHATSAPP ---------- */
+  .wa-float{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(255,255,255,0),#fff 34%)}
+  .wa-float .btn{width:100%;max-width:var(--maxw);margin:0 auto;font-size:1.04rem;box-shadow:0 -2px 28px -8px rgba(31,157,92,.45),0 12px 26px -12px rgba(31,157,92,.6)}
+
+  /* ---------- DESKTOP ---------- */
+  @media(min-width:860px){
+    .top-phone{display:block}
+    .hero .wrap{padding:50px 20px 0}
+    .hero-grid{grid-template-columns:1.02fr .98fr;align-items:center}
+    .facts .wrap{grid-template-columns:repeat(4,1fr)}
+    .cards{grid-template-columns:repeat(3,1fr)}
+    .ameni-grid{grid-template-columns:repeat(4,1fr)}
+    .lifestyle{grid-template-columns:1.1fr .9fr}
+    .loc-grid{grid-template-columns:1.05fr .95fr;align-items:center}
+    .render-grid{grid-template-columns:repeat(3,1fr)}
+    .plan-grid{grid-template-columns:repeat(3,1fr);align-items:start}
+    .legal-points{grid-template-columns:repeat(2,1fr)}
+    .steps-grid{grid-template-columns:repeat(4,1fr)}
+    .leadband .wrap{grid-template-columns:1fr 1fr;gap:44px}
+    .wa-float{display:none}
+    footer{padding-bottom:34px}
+    footer .wrap{grid-template-columns:1.5fr 1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== TOP BAR ===================== -->
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" aria-label="Urbanización Aurich Bonilla">
+      <svg class="logo-sym" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1c668"/><stop offset="1" stop-color="#d29a2e"/></linearGradient>
+          <clipPath id="hc"><circle cx="60" cy="60" r="47.5"/></clipPath>
+        </defs>
+        <circle cx="60" cy="60" r="55" fill="none" stroke="url(#hg)" stroke-width="4"/>
+        <g clip-path="url(#hc)">
+          <circle cx="60" cy="74" r="15" fill="url(#hg)"/>
+          <g stroke="url(#hg)" stroke-width="3" stroke-linecap="round">
+            <line x1="60" y1="50" x2="60" y2="42"/><line x1="44" y1="55" x2="39" y2="49"/><line x1="76" y1="55" x2="81" y2="49"/><line x1="33" y1="70" x2="26" y2="69"/><line x1="87" y1="70" x2="94" y2="69"/>
+          </g>
+          <g fill="#0a5dc2">
+            <path d="M28 86 V70 h15 V86 Z"/><path d="M26 71 L35.5 61 L45 71 Z"/>
+            <path d="M50 86 V62 h20 V86 Z"/><path d="M47 63 L60 50 L73 63 Z"/>
+            <path d="M76 86 V72 h15 V86 Z"/><path d="M74 73 L83.5 64 L93 73 Z"/>
+          </g>
+          <rect x="12" y="86" width="96" height="6" fill="#0a5dc2"/>
+        </g>
+      </svg>
+      <span class="brand-word"><b>Aurich Bonilla</b><small>Urbanización · Lambayeque</small></span>
+    </a>
+    <div class="top-actions">
+      <div class="top-phone">+51 9XX XXX XXX<small>Lun a Dom · 9am – 6pm</small></div>
+      <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20información%20de%20la%20Urbanización%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="badge-row">
+          <span class="chip live">● Urbanización ya construida</span>
+          <span class="chip">📍 Frente a la Panamericana Norte</span>
+        </div>
+        <h1>Lotes en Lambayeque, en una urbanización <b>ya terminada</b>.</h1>
+        <p class="lead">Pistas, veredas, parques y alumbrado <b>ya construidos</b>. Frente a la Panamericana, junto a la fábrica King Kong San Roque y la UNPRG. Cuotas desde <b>S/ XX al mes</b>, sin banco.</p>
+        <div class="hero-cta">
+          <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20información%20y%20precios%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Quiero info y precios</a>
+          <a class="btn btn-outline" href="#contacto">Solicitar información</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/emo-familia-hero.jpg" alt="Familia disfrutando del parque en la Urbanización Gilberto Aurich Bonilla, Lambayeque">
+        <div class="tag">📍 Lambayeque · frente a la Panamericana Norte</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUICK FACTS ===================== -->
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><div class="v">Desde S/ XX</div><div class="l">cuota mensual</div></div>
+    <div class="fact"><div class="v">XX m²</div><div class="l">lotes desde</div></div>
+    <div class="fact"><div class="v">Sin banco</div><div class="l">financiamiento directo</div></div>
+    <div class="fact"><div class="v">Lun – Dom</div><div class="l">atención 9am – 6pm</div></div>
+  </div>
+</div>
+
+<!-- ===================== LEAD FORM (alto, estilo Los Portales) ===================== -->
+<section class="leadband" id="contacto">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="color:#bcd6f7">Atención personalizada</div>
+      <h2>Recibe precios, planos y ubicación al instante.</h2>
+      <p class="lead">Déjanos tus datos y un asesor te contacta hoy mismo por WhatsApp. Sin compromiso, sin costo.</p>
+      <div style="margin-top:18px">
+        <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20info%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Prefiero escribir por WhatsApp</a>
+      </div>
+    </div>
+    <div class="form-card">
+      <h3>Quiero recibir información</h3>
+      <div class="sub">Te respondemos en minutos.</div>
+      <form onsubmit="return enviarLead(event)">
+        <label for="nombre">Nombre completo</label>
+        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+        <label for="tel">WhatsApp</label>
+        <input id="tel" name="tel" type="tel" inputmode="numeric" placeholder="9XX XXX XXX" required>
+        <label for="modo">¿Cómo te interesa comprar?</label>
+        <select id="modo" name="modo">
+          <option value="financiado">Financiado (en cuotas)</option>
+          <option value="contado">Al contado</option>
+          <option value="inversion">Como inversión</option>
+        </select>
+        <button class="btn btn-blue" type="submit">Solicitar información</button>
+        <p class="form-note">Al enviar aceptas que un asesor te contacte por WhatsApp.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INTRO ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Urbanización Gilberto Aurich Bonilla</span>
+      <h2>Tu lote propio en la mejor ubicación de Lambayeque.</h2>
+      <p class="lead">Una urbanización con habilitación construida, lista para que empieces a construir tu casa o asegures tu inversión. Aquí no compras una promesa: compras una obra que ya puedes caminar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PRUEBA: YA CONSTRUIDO ===================== -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="cards">
+      <div class="card">
+        <img src="assets/parques-construidos.jpg" alt="Parques ornamentales construidos en la urbanización">
+        <div class="c-body"><h3>Parques ya construidos</h3><p>Dos plazas con áreas verdes, bancas y ornamentación, listas para tu familia.</p></div>
+      </div>
+      <div class="card">
+        <img src="assets/zona-gimnasio.jpg" alt="Zona de gimnasio al aire libre y muro perimétrico">
+        <div class="c-body"><h3>Gimnasio al aire libre</h3><p>Zona de ejercicio y muro perimétrico que cierra y protege toda la urbanización.</p></div>
+      </div>
+      <div class="card">
+        <img src="assets/vista-colegio.jpg" alt="Calles pavimentadas junto a un colegio">
+        <div class="c-body"><h3>Pistas, veredas y alumbrado</h3><p>Calles pavimentadas y postes de luz instalados. Llegas a tu lote por pista, no por trocha.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ESTILO DE VIDA (emocional) ===================== -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="lifestyle">
+      <div class="lifestyle-media">
+        <img src="assets/emo-ninos-bici.jpg" alt="Niños jugando en bicicleta en la alameda de la urbanización">
+      </div>
+      <div class="lifestyle-copy">
+        <span class="eyebrow">Aquí tu familia vive mejor</span>
+        <h2>Un lugar seguro para que tus hijos crezcan.</h2>
+        <p class="lead">Calles tranquilas, parques con áreas verdes y una comunidad que recién empieza. El terreno que compras hoy es el patio donde tu familia juega mañana.</p>
+        <a class="btn btn-wa" href="https://wa.me/51900000000?text=Quiero%20info%20de%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener" style="margin-top:14px">⬤ Quiero un lote para mi familia</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== AMENITIES / EQUIPAMIENTO ===================== -->
+<section class="ameni">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Disfruta con todo equipado</span>
+      <h2>Todo lo que tu nueva urbanización ya tiene.</h2>
+    </div>
+    <div class="ameni-grid">
+      <div class="ameni-item"><div class="ic">🛣️</div><h4>Pistas y veredas</h4><p>Calles pavimentadas</p></div>
+      <div class="ameni-item"><div class="ic">💡</div><h4>Alumbrado público</h4><p>Postes instalados</p></div>
+      <div class="ameni-item"><div class="ic">🌳</div><h4>Parques y áreas verdes</h4><p>Dos plazas listas</p></div>
+      <div class="ameni-item"><div class="ic">🧱</div><h4>Muro perimétrico</h4><p>Urbanización cerrada</p></div>
+      <div class="ameni-item"><div class="ic">🏋️</div><h4>Gimnasio al aire libre</h4><p>Zona de ejercicio</p></div>
+      <div class="ameni-item"><div class="ic">💧</div><h4>Servicios básicos</h4><p>Agua y desagüe*</p></div>
+      <div class="ameni-item"><div class="ic">📜</div><h4>Documentos en regla</h4><p>Compra segura</p></div>
+      <div class="ameni-item"><div class="ic">🚗</div><h4>Acceso directo</h4><p>Sobre la Panamericana</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== UBICACIÓN ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Ubicación privilegiada</span>
+      <h2>Sobre la Panamericana Norte, con todo a la mano.</h2>
+      <p class="lead">Estar frente a la vía principal hace que tu lote suba de valor cada año. Y tienes universidades, comercio y servicios al lado.</p>
+    </div>
+    <div class="loc-grid">
+      <div class="loc-media">
+        <img src="assets/ubicacion-aerea.jpg" alt="Vista aérea de la Urbanización Gilberto Aurich Bonilla frente a la Panamericana Norte, Lambayeque">
+      </div>
+      <div>
+        <div class="loc-pills">
+          <div class="pill">🛣️ Frente a la Panamericana Norte <span class="d">acceso directo</span></div>
+          <div class="pill">🏭 Fábrica King Kong San Roque <span class="d">al frente</span></div>
+          <div class="pill">🎓 U. Nacional Pedro Ruiz Gallo <span class="d">a minutos</span></div>
+          <div class="pill">🎓 Universidad UTP <span class="d">a minutos</span></div>
+          <div class="pill">🛒 Sodimac Homecenter <span class="d">al lado</span></div>
+          <div class="pill">🏫 Colegio <span class="d">a pasos</span></div>
+        </div>
+        <div class="map-actions">
+          <a href="https://maps.google.com" target="_blank" rel="noopener">📍 Ver en Google Maps</a>
+          <a href="https://waze.com" target="_blank" rel="noopener">🧭 Cómo llegar (Waze)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== GALERÍA / RENDERS ===================== -->
+<section class="ameni">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Así se ve tu futuro</span>
+      <h2>El barrio que vas a llamar “mi casa”.</h2>
+    </div>
+    <div class="render-grid">
+      <div class="render"><img src="assets/emo-pareja.jpg" alt="Pareja joven mirando su futuro lote en la urbanización"><div class="cap">Tu sueño empieza aquí</div></div>
+      <div class="render"><img src="assets/render-casas.jpg" alt="Render de casas modernas en la urbanización"><div class="cap">Diseño proyectado</div></div>
+      <div class="render"><img src="assets/render-alameda.jpg" alt="Render de alameda y áreas verdes"><div class="cap">Alamedas y áreas verdes</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PLANES ===================== -->
+<section id="planes">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Precios y formas de pago</span>
+      <h2>Empieza con una cuota inicial accesible.</h2>
+      <p class="lead">Financiamiento directo con la urbanización, sin trámites de banco.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan">
+        <h3>Al contado</h3>
+        <div class="price">S/ XX <small>/ lote</small></div>
+        <ul>
+          <li>El mejor precio por m²</li>
+          <li>Lotes desde XX m²</li>
+          <li>Firma inmediata</li>
+          <li>Documentos en regla</li>
+        </ul>
+        <a class="btn btn-outline" href="https://wa.me/51900000000?text=Quiero%20el%20precio%20al%20contado%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">Pedir precio al contado</a>
+      </div>
+      <div class="plan featured">
+        <div class="flag">Más elegido</div>
+        <h3>Financiado</h3>
+        <div class="price">S/ XX <small>/ mes</small></div>
+        <ul>
+          <li>Inicial desde <b>S/ XX</b></li>
+          <li>Hasta XX meses de plazo</li>
+          <li><b>Sin banco</b> ni intereses ocultos</li>
+          <li>Separa tu lote desde <b>S/ XX</b></li>
+        </ul>
+        <a class="btn btn-wa" href="https://wa.me/51900000000?text=Quiero%20el%20plan%20financiado%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Quiero financiarlo</a>
+      </div>
+      <div class="plan">
+        <h3>Inversión</h3>
+        <div class="price">desde S/ XX</div>
+        <ul>
+          <li>Compra para revender o alquilar</li>
+          <li>Alta plusvalía sobre vía principal</li>
+          <li>Zona universitaria con demanda</li>
+          <li>Asesoría para tu inversión</li>
+        </ul>
+        <a class="btn btn-outline" href="https://wa.me/51900000000?text=Quiero%20invertir%20en%20Aurich%20Bonilla" target="_blank" rel="noopener">Hablar de inversión</a>
+      </div>
+    </div>
+    <div class="nobank">💡 <div><b>¿No calificas en el banco?</b> No importa. El financiamiento es directo con nosotros: solo tu DNI y tu cuota inicial.</div></div>
+  </div>
+</section>
+
+<!-- ===================== SEGURIDAD JURÍDICA ===================== -->
+<section class="ameni">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Compra sin miedo</span>
+      <h2>Tu lote, con todos los papeles en regla.</h2>
+      <p class="lead">El mayor miedo al comprar un terreno es que te estafen. Por eso aquí todo queda por escrito y ante notario.</p>
+    </div>
+    <div class="legal-points">
+      <div class="lp"><span>📜</span><p><b>Partida registral y saneamiento.</b> Tu lote está identificado y documentado, no es informal.</p></div>
+      <div class="lp"><span>✍️</span><p><b>Contrato ante notario.</b> Plazos y montos claros, sin letra chica.</p></div>
+      <div class="lp"><span>🏛️</span><p><b>Empresa formal con RUC.</b> Tratas con una empresa real que responde.</p></div>
+      <div class="lp"><span>🤝</span><p><b>Te acompañamos hasta tu título.</b> Asesoría en todo el proceso de independización.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PASOS ===================== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Así de fácil es</span>
+      <h2>De la primera consulta a tu lote propio.</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="n"></div><div><h4>Escríbenos</h4><p>Te enviamos precios, planos y ubicación al instante.</p></div></div>
+      <div class="step"><div class="n"></div><div><h4>Visita la obra</h4><p>Conoce las pistas, parques y tu futuro lote. Sin compromiso.</p></div></div>
+      <div class="step"><div class="n"></div><div><h4>Separa con una inicial</h4><p>Reservas tu lote y firmas tu contrato ante notario.</p></div></div>
+      <div class="step"><div class="n"></div><div><h4>Paga a tu ritmo</h4><p>Cuotas sin banco. Al terminar, el lote es 100% tuyo.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== OFERTA / REFERIDOS ===================== -->
+<section class="ameni">
+  <div class="wrap">
+    <div class="offer">
+      <span class="eyebrow" style="color:#bcd6f7">Beneficio del mes</span>
+      <h2>Refiere y gana.</h2>
+      <p>¿Conoces a alguien buscando su lote? Recomiéndalo y, cuando compre, recibes un beneficio. Pregúntanos por las condiciones.</p>
+      <a class="btn btn-wa" href="https://wa.me/51900000000?text=Quiero%20info%20del%20programa%20Refiere%20y%20gana%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Quiero referir</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CIERRE EMOCIONAL (llaves) ===================== -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="lifestyle">
+      <div class="lifestyle-copy">
+        <span class="eyebrow">El momento que estás esperando</span>
+        <h2>El día que tu lote por fin es tuyo.</h2>
+        <p class="lead">Familias como la tuya ya cumplieron el sueño de tener lo propio. Sin alquiler, sin miedo, con sus papeles en regla. El siguiente puedes ser tú.</p>
+        <a class="btn btn-blue" href="https://wa.me/51900000000?text=Quiero%20empezar%20mi%20compra%20en%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener" style="margin-top:14px">Quiero empezar hoy</a>
+      </div>
+      <div class="lifestyle-media">
+        <img src="assets/emo-llaves.jpg" alt="Familia feliz recibiendo las llaves de su lote en la urbanización">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section class="faq">
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que todos preguntan antes de comprar.</h2></div>
+    <details open><summary>¿Los lotes ya tienen pistas y servicios?</summary><p>Sí. La urbanización ya cuenta con pistas, veredas, alumbrado público, muro perimétrico y parques construidos. No es un terreno pelado.</p></details>
+    <details><summary>¿Puedo pagar en cuotas sin banco?</summary><p>Sí. El financiamiento es directo con la urbanización. No necesitas calificar en un banco: solo tu DNI y tu cuota inicial.</p></details>
+    <details><summary>¿Qué documentos recibo?</summary><p>Firmas un contrato ante notario y te acompañamos en todo el proceso de saneamiento e independización de tu lote.</p></details>
+    <details><summary>¿Dónde queda exactamente?</summary><p>En Lambayeque, frente a la Panamericana Norte, al frente de la fábrica King Kong San Roque y a minutos de la UNPRG y la UTP. Te enviamos la ubicación exacta por WhatsApp.</p></details>
+    <details><summary>¿Cuánto cuesta separar un lote?</summary><p>Puedes separar tu lote desde S/ XX. Escríbenos y te armamos el plan que se acomode a tu presupuesto.</p></details>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div>
+      <img src="assets/logo-horizontal.svg" alt="Urbanización Aurich Bonilla · Gilberto · Lambayeque" style="height:62px;width:auto;margin-bottom:12px">
+      <p>Urbanización con habilitación construida en Lambayeque, frente a la Panamericana Norte. Lotes con documentos en regla y financiamiento directo.</p>
+      <a class="libro" href="#" target="_blank" rel="noopener">📕 Libro de Reclamaciones</a>
+    </div>
+    <div>
+      <strong style="display:block;margin-bottom:8px">Contacto</strong>
+      WhatsApp: <a href="https://wa.me/51900000000">+51 9XX XXX XXX</a><br>
+      Email: ventas@aurichbonilla.pe<br>
+      Atención: Lun a Dom, 9am – 6pm<br>
+      Lambayeque, Perú
+    </div>
+    <div>
+      <strong style="display:block;margin-bottom:8px">Enlaces</strong>
+      <a href="#planes">Planes de pago</a><br>
+      <a href="#contacto">Solicitar información</a><br>
+      <a href="https://maps.google.com" target="_blank" rel="noopener">Ver en Google Maps</a>
+    </div>
+    <div class="legalrow">
+      © <span id="yr"></span> Urbanización Gilberto Aurich Bonilla · [Razón Social S.A.C.] · RUC 20XXXXXXXXX · Lambayeque, Perú. Las imágenes 3D son referenciales del proyecto proyectado. Precios y condiciones sujetos a disponibilidad vigente. *Servicios básicos según etapa de habilitación.
+    </div>
+  </div>
+</footer>
+
+<!-- ===================== STICKY WHATSAPP (móvil) ===================== -->
+<div class="wa-float">
+  <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20info%20y%20precios%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Cotizar mi lote por WhatsApp</a>
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  function enviarLead(e){
+    e.preventDefault();
+    var n = document.getElementById('nombre').value;
+    var modo = document.getElementById('modo').value;
+    var msg = encodeURIComponent('Hola, soy '+n+'. Me interesa un lote en Gilberto Aurich Bonilla ('+modo+'). Quiero info y precios.');
+    window.open('https://wa.me/51900000000?text='+msg,'_blank');
+    return false;
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Sistema
+.DS_Store
+*.log
+Thumbs.db
+
+# Videos pesados (materia prima original) — no se versionan:
+# superan el límite de GitHub (100MB) y la web no los usa directo.
+# Quedan en disco como respaldo, solo no entran al repo.
+insumos/videos/
+
+# Servidor local
+__pycache__/
