@@ -1,4 +1,4 @@
-<svg width="430" height="120" viewBox="0 0 430 120" xmlns="http://www.w3.org/2000/svg" aria-label="Urbanización Aurich Bonilla · Gilberto · Lambayeque">
+<svg width="548" height="120" viewBox="0 0 548 120" xmlns="http://www.w3.org/2000/svg" aria-label="Urbanización Gilberto Aurich Bonilla · Lambayeque">
   <defs>
     <linearGradient id="gd" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f3cf7a"/><stop offset="1" stop-color="#dca33a"/>
@@ -25,6 +25,6 @@
     </g>
   </g>
   <text x="116" y="40" font-family="'Jost','Segoe UI',sans-serif" font-size="11" letter-spacing="5" fill="#aebfd0">URBANIZACIÓN</text>
-  <text x="115" y="78" font-family="'Cormorant Garamond',Georgia,serif" font-weight="700" font-size="42" fill="#ffffff">Aurich Bonilla</text>
-  <text x="118" y="98" font-family="'Jost','Segoe UI',sans-serif" font-size="11.5" letter-spacing="3" fill="#f3cf7a">GILBERTO · LAMBAYEQUE</text>
+  <text x="115" y="76" font-family="'Cormorant Garamond',Georgia,serif" font-weight="700" font-size="35" fill="#ffffff">Gilberto Aurich Bonilla</text>
+  <text x="118" y="98" font-family="'Jost','Segoe UI',sans-serif" font-size="11.5" letter-spacing="3" fill="#f3cf7a">LAMBAYEQUE</text>
 </svg>

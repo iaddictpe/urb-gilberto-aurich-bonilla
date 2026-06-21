@@ -35,8 +35,9 @@
     --maxw:1140px;
     font-synthesis:none;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
+  *{box-sizing:border-box;margin:0;padding:0;min-width:0}
   html{scroll-behavior:smooth}
+  html,body{overflow-x:clip}
   body{font-family:'Jost','Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   img{max-width:100%;display:block}
   a{text-decoration:none;color:inherit}
@@ -73,13 +74,15 @@
   .top-phone small{display:block;font-size:.66rem;color:var(--muted);font-weight:500}
   .top .btn-wa{padding:9px 16px;font-size:.88rem}
 
-  /* ---------- HERO (estilo Los Portales: fondo + formulario arriba) ---------- */
-  .hero{position:relative;isolation:isolate;color:#fff;overflow:hidden}
-  .hero-bg{position:absolute;inset:0;z-index:-2}
-  .hero-bg img{width:100%;height:100%;object-fit:cover}
-  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,28,52,.82),rgba(8,28,52,.66) 42%,rgba(8,28,52,.9));z-index:1}
-  .hero .wrap{padding:34px 20px 40px;position:relative}
-  .hero-grid{display:grid;gap:28px;align-items:center}
+  /* ---------- HERO (estilo Los Portales: foto + formulario) ---------- */
+  /* Mobile-first: foto de la familia VISIBLE arriba, texto y formulario sobre panel azul */
+  .hero{position:relative;isolation:isolate;color:#fff;overflow:hidden;background:linear-gradient(180deg,#0c2c50,#08203a)}
+  .hero-bg{position:relative;z-index:0;line-height:0}
+  .hero-bg img{width:100%;height:auto;aspect-ratio:16/11;object-fit:cover;object-position:center 30%}
+  .hero-bg::after{content:"";position:absolute;inset:auto 0 -1px 0;height:34%;background:linear-gradient(180deg,rgba(8,32,58,0),#08203a);z-index:1}
+  .hero .wrap{padding:26px 20px 38px;position:relative;z-index:2}
+  .hero-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:center}
+  .hero-copy{min-width:0}
   .hero-copy h1{color:#fff;font-size:clamp(1.95rem,6vw,3.05rem);margin-bottom:15px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
   .hero-copy h1 b{color:#8fc0ff}
   .hero-copy p.lead{color:#dde8f5;max-width:560px}
@@ -247,6 +250,11 @@
   /* ---------- DESKTOP ---------- */
   @media(min-width:860px){
     .top-phone{display:block}
+    /* Desktop: foto como fondo full-bleed con overlay oscuro */
+    .hero{background:#08203a}
+    .hero-bg{position:absolute;inset:0;z-index:-2}
+    .hero-bg img{height:100%;aspect-ratio:auto;object-position:center}
+    .hero-bg::after{inset:0;height:auto;background:linear-gradient(180deg,rgba(8,28,52,.82),rgba(8,28,52,.66) 42%,rgba(8,28,52,.9))}
     .hero .wrap{padding:58px 20px 64px}
     .hero-grid{grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
     .hero-form{padding:26px}
