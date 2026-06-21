@@ -10,9 +10,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <!-- ============================================================
-     URBANIZACIÓN AURICH BONILLA — Landing (estilo Los Portales / blanco limpio)
+     URBANIZACIÓN GILBERTO AURICH BONILLA — Landing (estilo Los Portales / blanco limpio)
      Reemplazar: precios (XX), WhatsApp (51900000000), RUC / razón social,
      link de Maps/Waze, pixel de Meta, horario.
+     Iconografía: set SVG de línea propio (.icon) — sin emojis.
      ============================================================ -->
 <style>
   :root{
@@ -21,8 +22,9 @@
     --blue-soft:#eaf2fc;
     --green:#1f9d5c;       /* WhatsApp / disponible */
     --green-d:#178049;
-    --gold:#d8a23a;        /* acento aspiracional puntual */
-    --ink:#1d2733;
+    --gold:#d29a2e;        /* dorado de marca (acento aspiracional) */
+    --gold-soft:#fbf2df;
+    --ink:#16212e;
     --muted:#5e6b78;
     --line:#e6ebf0;
     --soft:#f7f9fb;
@@ -35,162 +37,208 @@
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+  body{font-family:'Jost','Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   img{max-width:100%;display:block}
   a{text-decoration:none;color:inherit}
   .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 20px}
-  .eyebrow{font-size:.76rem;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--blue)}
-  h1,h2,h3{line-height:1.14;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+  .eyebrow{font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--blue)}
+  h1,h2,h3{line-height:1.16;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
   h2{font-size:clamp(1.55rem,4.4vw,2.4rem)}
   .lead{color:var(--muted);font-size:1.05rem}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-weight:800;border:none;cursor:pointer;border-radius:999px;padding:14px 24px;font-size:1rem;transition:transform .15s ease,box-shadow .15s ease,background .15s}
+
+  /* ---------- ICON SYSTEM (SVG de línea, consistente) ---------- */
+  .icon{width:1.25em;height:1.25em;flex:0 0 auto;stroke:currentColor;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+  .icon-brand{color:var(--brand-wa,#fff)}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-weight:600;border:none;cursor:pointer;border-radius:999px;padding:14px 24px;font-size:1rem;letter-spacing:.01em;transition:transform .15s ease,box-shadow .15s ease,background .15s}
+  .btn .icon{width:1.15em;height:1.15em}
+  .btn-wa .icon{stroke:none;fill:currentColor;stroke-width:0}
   .btn:active{transform:scale(.97)}
   .btn-wa{background:var(--green);color:#fff;box-shadow:0 10px 22px -10px rgba(31,157,92,.6)}
   .btn-wa:hover{background:var(--green-d);transform:translateY(-2px)}
   .btn-blue{background:var(--blue);color:#fff;box-shadow:0 10px 22px -12px rgba(10,93,194,.6)}
   .btn-blue:hover{background:var(--blue-d);transform:translateY(-2px)}
   .btn-outline{background:#fff;color:var(--blue);border:1.5px solid var(--blue)}
+  .btn-outline:hover{background:var(--blue-soft)}
 
   /* ---------- TOP BAR ---------- */
   header.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
   .top .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
   .brand{display:flex;align-items:center;gap:11px;color:var(--ink)}
   .logo-sym{width:42px;height:42px;flex:0 0 auto}
-  .brand-word b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.42rem;line-height:1;color:#0e2a47;display:block}
+  .brand-word b{font-family:'Cormorant Garamond',Georgia,serif;font-weight:700;font-size:1.18rem;line-height:1.05;color:#0e2a47;display:block;white-space:nowrap}
   .brand-word small{display:block;font-size:.58rem;font-weight:600;color:var(--blue);letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
   .top-actions{display:flex;align-items:center;gap:14px}
-  .top-phone{display:none;font-weight:700;color:var(--ink);font-size:.92rem}
-  .top-phone small{display:block;font-size:.66rem;color:var(--muted);font-weight:600}
+  .top-phone{display:none;font-weight:600;color:var(--ink);font-size:.92rem}
+  .top-phone small{display:block;font-size:.66rem;color:var(--muted);font-weight:500}
   .top .btn-wa{padding:9px 16px;font-size:.88rem}
 
-  /* ---------- HERO ---------- */
-  .hero{background:var(--white);border-bottom:1px solid var(--line)}
-  .hero .wrap{padding:34px 20px 0}
-  .hero-grid{display:grid;gap:24px}
-  .hero-media{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
-  .hero-media img{width:100%;aspect-ratio:16/11;object-fit:cover}
-  .hero-media .tag{position:absolute;left:14px;bottom:14px;background:rgba(255,255,255,.94);color:var(--ink);padding:8px 13px;border-radius:11px;font-size:.8rem;font-weight:700;box-shadow:var(--shadow-sm)}
-  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-  .chip{display:inline-flex;align-items:center;gap:6px;background:var(--blue-soft);color:var(--blue-d);padding:6px 12px;border-radius:999px;font-size:.76rem;font-weight:700}
-  .chip.live{background:#e7f6ee;color:var(--green-d)}
-  .hero h1{font-size:clamp(1.9rem,6vw,3rem);margin-bottom:14px}
-  .hero h1 b{color:var(--blue)}
-  .hero p.lead{max-width:560px}
-  .hero-cta{display:flex;flex-wrap:wrap;gap:11px;margin-top:22px}
+  /* ---------- HERO (estilo Los Portales: fondo + formulario arriba) ---------- */
+  .hero{position:relative;isolation:isolate;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:-2}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,28,52,.82),rgba(8,28,52,.66) 42%,rgba(8,28,52,.9));z-index:1}
+  .hero .wrap{padding:34px 20px 40px;position:relative}
+  .hero-grid{display:grid;gap:28px;align-items:center}
+  .hero-copy h1{color:#fff;font-size:clamp(1.95rem,6vw,3.05rem);margin-bottom:15px;text-shadow:0 2px 18px rgba(0,0,0,.25)}
+  .hero-copy h1 b{color:#8fc0ff}
+  .hero-copy p.lead{color:#dde8f5;max-width:560px}
+  .hero-trust{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:20px}
+  .hero-trust span{display:inline-flex;align-items:center;gap:8px;font-size:.84rem;font-weight:600;color:#eaf2fd}
+  .hero-trust .icon{width:18px;height:18px;color:#8fc0ff}
+
+  .badge-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.14);color:#fff;padding:6px 13px;border-radius:999px;font-size:.76rem;font-weight:600;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.18)}
+  .chip .icon{width:14px;height:14px}
+  .chip.live{background:rgba(31,157,92,.28);color:#d6f5e4;border-color:rgba(214,245,228,.35)}
+  .dot{width:8px;height:8px;border-radius:50%;background:#2fd17e;flex:0 0 auto;box-shadow:0 0 0 0 rgba(47,209,126,.5);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,209,126,.45)}70%{box-shadow:0 0 0 7px rgba(47,209,126,0)}100%{box-shadow:0 0 0 0 rgba(47,209,126,0)}}
+
+  /* form card flotante del hero */
+  .hero-form{background:#fff;color:var(--ink);border-radius:var(--radius);padding:22px;box-shadow:0 30px 70px -28px rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.5)}
+  .hero-form .fc-head{display:flex;align-items:center;gap:11px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .hero-form .fc-head .ic{width:42px;height:42px;flex:0 0 auto;border-radius:11px;background:var(--blue-soft);display:grid;place-items:center;color:var(--blue)}
+  .hero-form .fc-head .ic .icon{width:22px;height:22px}
+  .hero-form .fc-head h3{font-size:1.08rem;line-height:1.2}
+  .hero-form .fc-head small{display:block;font-size:.8rem;color:var(--muted);font-weight:500;margin-top:2px}
+  .hero-form .or{text-align:center;font-size:.74rem;color:var(--muted);margin:14px 0 4px;position:relative}
+  .hero-form .or::before,.hero-form .or::after{content:"";position:absolute;top:50%;width:38%;height:1px;background:var(--line)}
+  .hero-form .or::before{left:0}.hero-form .or::after{right:0}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:11px;margin-top:24px}
+
+  /* ---------- VIDEO BAND ---------- */
+  .videoband .sec-head{margin-bottom:22px}
+  .video-wrap{position:relative;max-width:980px;margin:0 auto;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#000}
+  .video-wrap video{width:100%;display:block;aspect-ratio:16/9;object-fit:cover}
+  .video-wrap .vtag{position:absolute;left:14px;top:14px;display:inline-flex;align-items:center;gap:7px;background:rgba(14,42,71,.82);color:#fff;padding:7px 13px;border-radius:999px;font-size:.78rem;font-weight:600;backdrop-filter:blur(4px)}
+  .video-wrap .vtag .dot{width:8px;height:8px;border-radius:50%;background:#ff4d4d;animation:vpulse 1.6s infinite}
+  @keyframes vpulse{0%,100%{opacity:1}50%{opacity:.35}}
 
   /* ---------- QUICK FACTS BAR ---------- */
   .facts{background:var(--soft);border-bottom:1px solid var(--line)}
   .facts .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border-radius:var(--radius);overflow:hidden;margin-top:34px;margin-bottom:34px;box-shadow:var(--shadow-sm)}
-  .fact{background:#fff;padding:16px 16px;text-align:center}
-  .fact .v{font-size:1.15rem;font-weight:900;color:var(--blue)}
-  .fact .l{font-size:.74rem;color:var(--muted);font-weight:600;margin-top:2px}
+  .fact{background:#fff;padding:18px 16px;text-align:center}
+  .fact .v{font-size:1.15rem;font-weight:700;color:var(--blue)}
+  .fact .l{font-size:.74rem;color:var(--muted);font-weight:500;margin-top:3px}
 
   /* ---------- SECTION SHELL ---------- */
-  section{padding:52px 0}
-  .sec-head{max-width:680px;margin-bottom:28px}
-  .sec-head .eyebrow{margin-bottom:9px;display:block}
+  section{padding:56px 0}
+  .sec-head{max-width:680px;margin-bottom:30px}
+  .sec-head .eyebrow{margin-bottom:10px;display:block}
   .center{margin-left:auto;margin-right:auto;text-align:center}
+  .sec-head.center h2::after{content:"";display:block;width:46px;height:3px;border-radius:3px;background:var(--gold);margin:14px auto 0}
 
   /* ---------- LEAD FORM (alta, estilo LP) ---------- */
-  .leadband{background:var(--blue);color:#fff}
+  .leadband{background:var(--blue);color:#fff;background-image:linear-gradient(160deg,#0a5dc2,#084a9c)}
   .leadband .wrap{display:grid;gap:24px;align-items:center}
   .leadband h2{color:#fff}
   .leadband .lead{color:#cfe1f7}
-  .form-card{background:#fff;color:var(--ink);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+  .form-card{background:#fff;color:var(--ink);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
   .form-card h3{font-size:1.1rem;margin-bottom:4px}
   .form-card .sub{font-size:.86rem;color:var(--muted);margin-bottom:8px}
-  .form-card label{display:block;font-size:.78rem;font-weight:800;color:var(--ink);margin:12px 0 5px}
-  .form-card input,.form-card select{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:11px;font-size:1rem;font-family:inherit;background:#fbfdff}
-  .form-card input:focus,.form-card select:focus{outline:none;border-color:var(--blue)}
-  .form-card .btn{width:100%;margin-top:16px}
-  .form-note{font-size:.74rem;color:var(--muted);margin-top:9px;text-align:center}
+  .form-card label,.hero-form label{display:block;font-size:.78rem;font-weight:600;color:var(--ink);margin:13px 0 5px}
+  .form-card input,.form-card select,.hero-form input,.hero-form select{width:100%;padding:12px 13px;border:1.5px solid var(--line);border-radius:11px;font-size:1rem;font-family:inherit;background:#fbfdff;transition:border-color .15s,box-shadow .15s}
+  .form-card input:focus,.form-card select:focus,.hero-form input:focus,.hero-form select:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(10,93,194,.12)}
+  .form-card .btn,.hero-form .btn{width:100%;margin-top:18px}
+  .form-note{font-size:.74rem;color:var(--muted);margin-top:10px;text-align:center}
 
   /* ---------- PRUEBA YA CONSTRUIDO ---------- */
   .cards{display:grid;gap:18px;grid-template-columns:1fr}
-  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
   .card img{width:100%;aspect-ratio:16/10;object-fit:cover}
-  .card .c-body{padding:15px 17px}
-  .card h3{font-size:1.04rem;color:var(--ink);margin-bottom:4px}
+  .card .c-body{padding:17px 18px}
+  .card h3{font-size:1.04rem;color:var(--ink);margin-bottom:5px}
   .card p{font-size:.89rem;color:var(--muted)}
 
   /* ---------- LIFESTYLE (emocional) ---------- */
-  .lifestyle{display:grid;gap:22px;align-items:center}
+  .lifestyle{display:grid;gap:24px;align-items:center}
   .lifestyle-media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
   .lifestyle-media img{width:100%;aspect-ratio:16/10;object-fit:cover}
 
   /* ---------- AMENITIES / EQUIPAMIENTO ---------- */
   .ameni{background:var(--soft)}
   .ameni-grid{display:grid;gap:14px;grid-template-columns:repeat(2,1fr)}
-  .ameni-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 16px;text-align:center;box-shadow:var(--shadow-sm)}
-  .ameni-item .ic{width:52px;height:52px;border-radius:14px;background:var(--blue-soft);display:grid;place-items:center;margin:0 auto 10px;font-size:1.5rem}
-  .ameni-item h4{font-size:.96rem;color:var(--ink)}
-  .ameni-item p{font-size:.8rem;color:var(--muted);margin-top:3px}
+  .ameni-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 16px;text-align:center;box-shadow:var(--shadow-sm);transition:transform .18s ease,box-shadow .18s ease}
+  .ameni-item:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .ameni-item .ic{width:54px;height:54px;border-radius:14px;background:var(--blue-soft);display:grid;place-items:center;margin:0 auto 12px;color:var(--blue)}
+  .ameni-item .ic .icon{width:26px;height:26px}
+  .ameni-item h4{font-size:.96rem;color:var(--ink);font-weight:600}
+  .ameni-item p{font-size:.8rem;color:var(--muted);margin-top:4px}
 
   /* ---------- UBICACIÓN ---------- */
   .loc-grid{display:grid;gap:24px}
   .loc-media{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
   .loc-pills{display:grid;gap:9px}
-  .pill{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:12px 14px;font-weight:700;color:var(--ink);box-shadow:var(--shadow-sm)}
-  .pill .d{margin-left:auto;font-size:.78rem;color:var(--muted);font-weight:600}
-  .map-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-  .map-actions a{font-size:.86rem;font-weight:700;color:var(--blue);display:inline-flex;align-items:center;gap:6px;border:1.5px solid var(--line);border-radius:999px;padding:9px 16px}
+  .pill{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:12px;padding:13px 15px;font-weight:600;color:var(--ink);box-shadow:var(--shadow-sm)}
+  .pill .icon{width:21px;height:21px;color:var(--blue)}
+  .pill .d{margin-left:auto;font-size:.78rem;color:var(--muted);font-weight:500}
+  .map-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .map-actions a{font-size:.86rem;font-weight:600;color:var(--blue);display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--line);border-radius:999px;padding:9px 17px;transition:border-color .15s,background .15s}
+  .map-actions a:hover{border-color:var(--blue);background:var(--blue-soft)}
+  .map-actions a .icon{width:17px;height:17px}
 
   /* ---------- GALERÍA / RENDERS ---------- */
   .render-grid{display:grid;gap:14px;grid-template-columns:1fr}
   .render{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);position:relative;box-shadow:var(--shadow-sm)}
   .render img{aspect-ratio:16/10;object-fit:cover;width:100%}
-  .render .cap{position:absolute;left:11px;bottom:11px;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 11px;border-radius:9px;font-size:.76rem;font-weight:700}
+  .render .cap{position:absolute;left:11px;bottom:11px;background:rgba(255,255,255,.94);color:var(--ink);padding:6px 11px;border-radius:9px;font-size:.76rem;font-weight:600}
 
   /* ---------- PLANES ---------- */
   .plan-grid{display:grid;gap:18px;grid-template-columns:1fr}
-  .plan{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow-sm);position:relative}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px 22px;box-shadow:var(--shadow-sm);position:relative}
   .plan.featured{border:2px solid var(--blue);box-shadow:var(--shadow)}
-  .plan .flag{position:absolute;top:-12px;left:22px;background:var(--blue);color:#fff;font-size:.7rem;font-weight:800;padding:5px 12px;border-radius:999px;letter-spacing:.05em;text-transform:uppercase}
+  .plan .flag{position:absolute;top:-12px;left:22px;display:inline-flex;align-items:center;gap:6px;background:var(--gold);color:#3a2a06;font-size:.7rem;font-weight:700;padding:6px 13px;border-radius:999px;letter-spacing:.04em;text-transform:uppercase}
+  .plan .flag .icon{width:14px;height:14px;stroke-width:2.4}
   .plan h3{color:var(--ink);font-size:1.12rem;margin-bottom:4px}
-  .plan .price{font-size:1.9rem;font-weight:900;color:var(--blue);margin:4px 0}
-  .plan .price small{font-size:.82rem;font-weight:600;color:var(--muted)}
-  .plan ul{list-style:none;margin:12px 0 18px;display:grid;gap:8px}
-  .plan li{font-size:.9rem;display:flex;gap:8px;align-items:flex-start;color:var(--ink)}
-  .plan li::before{content:"✓";color:var(--green);font-weight:900}
+  .plan .price{font-size:1.9rem;font-weight:700;color:var(--blue);margin:6px 0}
+  .plan .price small{font-size:.82rem;font-weight:500;color:var(--muted)}
+  .plan ul{list-style:none;margin:14px 0 20px;display:grid;gap:10px}
+  .plan li{font-size:.9rem;display:flex;gap:9px;align-items:flex-start;color:var(--ink)}
+  .plan li .icon{width:18px;height:18px;color:var(--green);margin-top:1px}
   .plan .btn{width:100%}
-  .nobank{margin-top:18px;background:var(--blue-soft);border-radius:14px;padding:14px 16px;font-size:.9rem;color:var(--blue-d);font-weight:600;display:flex;gap:10px;align-items:center}
+  .nobank{margin-top:20px;background:var(--blue-soft);border-radius:14px;padding:16px 18px;font-size:.9rem;color:var(--blue-d);font-weight:500;display:flex;gap:12px;align-items:center}
+  .nobank .icon{width:24px;height:24px;color:var(--blue);flex:0 0 auto}
 
   /* ---------- SEGURIDAD JURÍDICA ---------- */
   .legal-points{display:grid;gap:13px;grid-template-columns:1fr}
-  .legal-points .lp{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px 16px;box-shadow:var(--shadow-sm)}
-  .legal-points .lp span{font-size:1.4rem;line-height:1}
+  .legal-points .lp{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:13px;padding:17px 18px;box-shadow:var(--shadow-sm)}
+  .legal-points .lp .ic{width:44px;height:44px;flex:0 0 auto;border-radius:11px;background:var(--blue-soft);display:grid;place-items:center;color:var(--blue)}
+  .legal-points .lp .ic .icon{width:23px;height:23px}
   .legal-points .lp p{font-size:.9rem;color:var(--muted)}
-  .legal-points .lp b{color:var(--ink)}
+  .legal-points .lp b{color:var(--ink);display:block;margin-bottom:2px}
 
   /* ---------- PASOS ---------- */
   .steps-grid{display:grid;gap:14px;counter-reset:s;grid-template-columns:1fr}
-  .step{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:17px;box-shadow:var(--shadow-sm)}
-  .step .n{counter-increment:s;flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:900}
+  .step{display:flex;gap:15px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow-sm)}
+  .step .n{counter-increment:s;flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700}
   .step .n::before{content:counter(s)}
-  .step h4{color:var(--ink);font-size:1rem}
-  .step p{font-size:.88rem;color:var(--muted)}
+  .step h4{color:var(--ink);font-size:1rem;font-weight:600}
+  .step p{font-size:.88rem;color:var(--muted);margin-top:3px}
 
   /* ---------- OFERTA / REFERIDOS ---------- */
-  .offer{background:linear-gradient(120deg,var(--blue),var(--blue-d));color:#fff;border-radius:var(--radius);padding:28px 24px;text-align:center;box-shadow:var(--shadow)}
+  .offer{background:linear-gradient(120deg,var(--blue),var(--blue-d));color:#fff;border-radius:var(--radius);padding:34px 24px;text-align:center;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .offer::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:var(--gold)}
   .offer h2{color:#fff;margin-bottom:8px}
-  .offer p{color:#d4e4f8;max-width:520px;margin:0 auto 18px}
+  .offer p{color:#d4e4f8;max-width:520px;margin:0 auto 20px}
 
   /* ---------- FAQ ---------- */
   .faq details{background:#fff;border:1px solid var(--line);border-radius:13px;padding:2px 18px;margin-bottom:11px;box-shadow:var(--shadow-sm)}
-  .faq summary{cursor:pointer;font-weight:700;color:var(--ink);padding:15px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .faq summary{cursor:pointer;font-weight:600;color:var(--ink);padding:16px 0;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px}
   .faq summary::-webkit-details-marker{display:none}
-  .faq summary::after{content:"+";font-size:1.5rem;color:var(--blue);font-weight:400;line-height:1}
-  .faq details[open] summary::after{content:"–"}
-  .faq details p{padding:0 0 15px;color:var(--muted);font-size:.93rem}
+  .faq summary .chev{width:20px;height:20px;flex:0 0 auto;color:var(--blue);transition:transform .2s ease}
+  .faq details[open] summary .chev{transform:rotate(180deg)}
+  .faq details p{padding:0 0 16px;color:var(--muted);font-size:.93rem}
 
   /* ---------- FOOTER ---------- */
-  footer{background:var(--soft);color:var(--muted);padding:34px 0 110px;font-size:.86rem;border-top:1px solid var(--line)}
+  footer{background:var(--soft);color:var(--muted);padding:38px 0 110px;font-size:.86rem;border-top:1px solid var(--line)}
   footer .wrap{display:grid;gap:18px}
   footer .brand{margin-bottom:6px}
   footer strong{color:var(--ink)}
-  footer a{color:var(--blue);font-weight:600}
+  footer a.link{color:var(--blue);font-weight:500}
   footer .legalrow{font-size:.76rem;color:#8895a2;border-top:1px solid var(--line);padding-top:16px;line-height:1.7;grid-column:1/-1}
-  .libro{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);border-radius:8px;padding:8px 12px;font-size:.78rem;font-weight:800;color:var(--ink);margin-top:6px}
+  .libro{display:inline-flex;align-items:center;gap:9px;border:1.5px solid var(--ink);border-radius:8px;padding:9px 14px;font-size:.78rem;font-weight:600;color:var(--ink);margin-top:8px}
+  .libro .icon{width:17px;height:17px}
 
   /* ---------- STICKY WHATSAPP ---------- */
   .wa-float{position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(255,255,255,0),#fff 34%)}
@@ -199,8 +247,9 @@
   /* ---------- DESKTOP ---------- */
   @media(min-width:860px){
     .top-phone{display:block}
-    .hero .wrap{padding:50px 20px 0}
-    .hero-grid{grid-template-columns:1.02fr .98fr;align-items:center}
+    .hero .wrap{padding:58px 20px 64px}
+    .hero-grid{grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+    .hero-form{padding:26px}
     .facts .wrap{grid-template-columns:repeat(4,1fr)}
     .cards{grid-template-columns:repeat(3,1fr)}
     .ameni-grid{grid-template-columns:repeat(4,1fr)}
@@ -210,19 +259,107 @@
     .plan-grid{grid-template-columns:repeat(3,1fr);align-items:start}
     .legal-points{grid-template-columns:repeat(2,1fr)}
     .steps-grid{grid-template-columns:repeat(4,1fr)}
-    .leadband .wrap{grid-template-columns:1fr 1fr;gap:44px}
     .wa-float{display:none}
-    footer{padding-bottom:34px}
+    footer{padding-bottom:38px}
     footer .wrap{grid-template-columns:1.5fr 1fr 1fr}
   }
 </style>
 </head>
 <body>
 
+<!-- ============================================================
+     SET DE ICONOS SVG (sprite) — línea minimalista, stroke=currentColor.
+     Se referencian con <svg class="icon"><use href="#i-xxx"/></svg>
+     ============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24">
+      <path d="M12.04 2C6.6 2 2.18 6.42 2.18 11.86c0 1.74.46 3.43 1.32 4.92L2.1 22l5.36-1.4a9.8 9.8 0 0 0 4.58 1.16h.01c5.44 0 9.86-4.42 9.86-9.86 0-2.63-1.02-5.11-2.88-6.98A9.82 9.82 0 0 0 12.04 2Zm5.78 14.06c-.24.68-1.4 1.31-1.94 1.36-.5.05-1.13.07-1.83-.11-.42-.11-.96-.29-1.66-.59-2.92-1.26-4.83-4.2-4.97-4.39-.15-.2-1.2-1.59-1.2-3.03 0-1.44.76-2.15 1.02-2.44.27-.29.59-.36.78-.36.2 0 .39 0 .56.01.18.01.42-.07.66.5.24.59.83 2.03.9 2.18.07.15.12.32.02.51-.1.2-.15.32-.29.49-.15.17-.31.39-.44.52-.15.15-.3.31-.13.6.17.29.76 1.26 1.64 2.04 1.13 1.01 2.08 1.32 2.37 1.47.29.15.46.12.63-.07.17-.2.73-.85.92-1.14.2-.29.39-.24.66-.15.27.1 1.71.81 2 .96.29.15.49.22.56.34.07.12.07.71-.17 1.39Z"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24">
+      <path d="M12 21s-6.5-5.2-6.5-10.5A6.5 6.5 0 0 1 12 4a6.5 6.5 0 0 1 6.5 6.5C18.5 15.8 12 21 12 21Z"/>
+      <circle cx="12" cy="10.4" r="2.4"/>
+    </symbol>
+    <symbol id="i-nav" viewBox="0 0 24 24">
+      <path d="M21 4 3 11l7 2.4L12.4 21 21 4Z"/>
+    </symbol>
+    <symbol id="i-road" viewBox="0 0 24 24">
+      <path d="M7 3 4.5 21M17 3l2.5 18M12 5v2.5M12 11.5V14M12 18v2.5"/>
+    </symbol>
+    <symbol id="i-lamp" viewBox="0 0 24 24">
+      <path d="M12 3a5.5 5.5 0 0 0-3 10.1V16h6v-2.9A5.5 5.5 0 0 0 12 3Z"/>
+      <path d="M9.5 19h5M10.5 21.5h3"/>
+    </symbol>
+    <symbol id="i-tree" viewBox="0 0 24 24">
+      <path d="M12 14v7"/>
+      <path d="M12 3a5 5 0 0 0-3.4 8.66A4 4 0 0 0 12 17a4 4 0 0 0 3.4-5.34A5 5 0 0 0 12 3Z"/>
+    </symbol>
+    <symbol id="i-wall" viewBox="0 0 24 24">
+      <rect x="3.5" y="5" width="17" height="14" rx="1"/>
+      <path d="M3.5 9.7h17M3.5 14.3h17M8.2 5v4.7M14 9.7v4.6M8.2 14.3V19M16.2 5v4.7M16.2 14.3V19"/>
+    </symbol>
+    <symbol id="i-dumbbell" viewBox="0 0 24 24">
+      <path d="M6.5 8.5v7M4 9.5v5M17.5 8.5v7M20 9.5v5M6.5 12h11"/>
+    </symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24">
+      <path d="M12 3.5c2.6 2.8 5 5.9 5 9a5 5 0 0 1-10 0c0-3.1 2.4-6.2 5-9Z"/>
+    </symbol>
+    <symbol id="i-doc" viewBox="0 0 24 24">
+      <path d="M14 3v4a1 1 0 0 0 1 1h4"/>
+      <path d="M6 21V3h8l4 4v14z"/>
+      <path d="M9 13h6M9 16.5h4"/>
+    </symbol>
+    <symbol id="i-car" viewBox="0 0 24 24">
+      <path d="M5 11l1.6-4.2a2 2 0 0 1 1.87-1.3h7.06a2 2 0 0 1 1.87 1.3L19 11M4 16.5h16M4 16.5v-3.3a2 2 0 0 1 1.2-1.83L7 11h10l1.8.37A2 2 0 0 1 20 13.2v3.3"/>
+      <circle cx="7.5" cy="16.5" r="1.5"/><circle cx="16.5" cy="16.5" r="1.5"/>
+    </symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24">
+      <path d="M3 21h18M4 21V10l5 3.5V10l5 3.5V10l5 3.5V21"/>
+      <path d="M4 10 4.8 4h1.4l.6 4.5"/>
+    </symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24">
+      <path d="M12 4 2.5 8.5 12 13l9.5-4.5L12 4Z"/>
+      <path d="M6.5 10.8V15c0 1.1 2.46 2.5 5.5 2.5s5.5-1.4 5.5-2.5v-4.2M21.5 8.5v5"/>
+    </symbol>
+    <symbol id="i-cart" viewBox="0 0 24 24">
+      <circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/>
+      <path d="M3 4h2.2l2.1 11h10l1.9-7.5H6.2"/>
+    </symbol>
+    <symbol id="i-school" viewBox="0 0 24 24">
+      <path d="M3 21h18M5 21V8.5L12 4l7 4.5V21M9.5 21v-4.5h5V21M9.8 11h.01M14.2 11h.01"/>
+    </symbol>
+    <symbol id="i-pen" viewBox="0 0 24 24">
+      <path d="M3 21l1-3.6L15.8 5.6a1.8 1.8 0 0 1 2.55 0l.05.05a1.8 1.8 0 0 1 0 2.55L6.6 20l-3.6 1Z"/>
+      <path d="M14.5 6.9 17.1 9.5"/>
+    </symbol>
+    <symbol id="i-bank" viewBox="0 0 24 24">
+      <path d="M3.5 21h17M5 21v-8M9.5 21v-8M14.5 21v-8M19 21v-8M3.5 13h17M12 3.5 4 8h16l-8-4.5Z"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 3.5 5.5 6v5c0 3.7 2.7 6.2 6.5 7.5 3.8-1.3 6.5-3.8 6.5-7.5V6L12 3.5Z"/>
+      <path d="M9.2 11.8 11.2 13.8 15 10"/>
+    </symbol>
+    <symbol id="i-info" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5"/>
+      <path d="M12 11v5M12 7.8h.01"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="M4.5 12.5 9.5 17.5 19.5 6.5"/>
+    </symbol>
+    <symbol id="i-book" viewBox="0 0 24 24">
+      <path d="M5 4.5A1.5 1.5 0 0 1 6.5 3H18v15H6.5A1.5 1.5 0 0 0 5 19.5V4.5Z"/>
+      <path d="M5 19.5A1.5 1.5 0 0 0 6.5 21H18"/>
+    </symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24">
+      <path d="M6 9.5 12 15.5 18 9.5"/>
+    </symbol>
+  </defs>
+</svg>
+
 <!-- ===================== TOP BAR ===================== -->
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#" aria-label="Urbanización Aurich Bonilla">
+    <a class="brand" href="#" aria-label="Urbanización Gilberto Aurich Bonilla">
       <svg class="logo-sym" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <defs>
           <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f1c668"/><stop offset="1" stop-color="#d29a2e"/></linearGradient>
@@ -242,35 +379,73 @@
           <rect x="12" y="86" width="96" height="6" fill="#0a5dc2"/>
         </g>
       </svg>
-      <span class="brand-word"><b>Aurich Bonilla</b><small>Urbanización · Lambayeque</small></span>
+      <span class="brand-word"><b>Gilberto Aurich Bonilla</b><small>Urbanización · Lambayeque</small></span>
     </a>
     <div class="top-actions">
       <div class="top-phone">+51 9XX XXX XXX<small>Lun a Dom · 9am – 6pm</small></div>
-      <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20información%20de%20la%20Urbanización%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ WhatsApp</a>
+      <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20información%20de%20la%20Urbanización%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a>
     </div>
   </div>
 </header>
 
-<!-- ===================== HERO ===================== -->
-<section class="hero">
+<!-- ===================== HERO (fondo + formulario arriba, estilo Los Portales) ===================== -->
+<section class="hero" id="contacto">
+  <div class="hero-bg">
+    <img src="assets/emo-familia-hero.jpg" alt="Urbanización Gilberto Aurich Bonilla en Lambayeque, frente a la Panamericana Norte">
+  </div>
   <div class="wrap">
     <div class="hero-grid">
-      <div>
+      <div class="hero-copy">
         <div class="badge-row">
-          <span class="chip live">● Urbanización ya construida</span>
-          <span class="chip">📍 Frente a la Panamericana Norte</span>
+          <span class="chip live"><span class="dot"></span>Urbanización ya construida</span>
+          <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Frente a la Panamericana Norte</span>
         </div>
         <h1>Lotes en Lambayeque, en una urbanización <b>ya terminada</b>.</h1>
         <p class="lead">Pistas, veredas, parques y alumbrado <b>ya construidos</b>. Frente a la Panamericana, junto a la fábrica King Kong San Roque y la UNPRG. Cuotas desde <b>S/ XX al mes</b>, sin banco.</p>
-        <div class="hero-cta">
-          <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20información%20y%20precios%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Quiero info y precios</a>
-          <a class="btn btn-outline" href="#contacto">Solicitar información</a>
+        <div class="hero-trust">
+          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Financiamiento directo, sin banco</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Documentos en regla</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Obra que ya puedes caminar</span>
         </div>
       </div>
-      <div class="hero-media">
-        <img src="assets/emo-familia-hero.jpg" alt="Familia disfrutando del parque en la Urbanización Gilberto Aurich Bonilla, Lambayeque">
-        <div class="tag">📍 Lambayeque · frente a la Panamericana Norte</div>
+
+      <div class="hero-form">
+        <div class="fc-head">
+          <div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg></div>
+          <div><h3>Cotiza tu lote ahora</h3><small>Precios, planos y ubicación al instante.</small></div>
+        </div>
+        <form onsubmit="return enviarLead(event)">
+          <label for="nombre">Nombre completo</label>
+          <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
+          <label for="tel">WhatsApp</label>
+          <input id="tel" name="tel" type="tel" inputmode="numeric" placeholder="9XX XXX XXX" required>
+          <label for="modo">¿Cómo te interesa comprar?</label>
+          <select id="modo" name="modo">
+            <option value="financiado">Financiado (en cuotas)</option>
+            <option value="contado">Al contado</option>
+            <option value="inversion">Como inversión</option>
+          </select>
+          <button class="btn btn-blue" type="submit">Quiero info y precios</button>
+          <p class="form-note">Al enviar aceptas que un asesor te contacte por WhatsApp.</p>
+        </form>
+        <div class="or">o si prefieres</div>
+        <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20información%20y%20precios%20de%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Escribir por WhatsApp</a>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== VIDEO (recorrido dron) ===================== -->
+<section class="videoband" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Recórrela por dentro</span>
+      <h2>Mira la urbanización que ya está construida.</h2>
+    </div>
+    <div class="video-wrap">
+      <span class="vtag"><span class="dot"></span>Recorrido real</span>
+      <video src="assets/video-terreno.mp4" poster="assets/parques-construidos.jpg"
+             controls autoplay muted loop playsinline preload="metadata"></video>
     </div>
   </div>
 </section>
@@ -284,38 +459,6 @@
     <div class="fact"><div class="v">Lun – Dom</div><div class="l">atención 9am – 6pm</div></div>
   </div>
 </div>
-
-<!-- ===================== LEAD FORM (alto, estilo Los Portales) ===================== -->
-<section class="leadband" id="contacto">
-  <div class="wrap">
-    <div>
-      <div class="eyebrow" style="color:#bcd6f7">Atención personalizada</div>
-      <h2>Recibe precios, planos y ubicación al instante.</h2>
-      <p class="lead">Déjanos tus datos y un asesor te contacta hoy mismo por WhatsApp. Sin compromiso, sin costo.</p>
-      <div style="margin-top:18px">
-        <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20info%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Prefiero escribir por WhatsApp</a>
-      </div>
-    </div>
-    <div class="form-card">
-      <h3>Quiero recibir información</h3>
-      <div class="sub">Te respondemos en minutos.</div>
-      <form onsubmit="return enviarLead(event)">
-        <label for="nombre">Nombre completo</label>
-        <input id="nombre" name="nombre" type="text" placeholder="Tu nombre" required>
-        <label for="tel">WhatsApp</label>
-        <input id="tel" name="tel" type="tel" inputmode="numeric" placeholder="9XX XXX XXX" required>
-        <label for="modo">¿Cómo te interesa comprar?</label>
-        <select id="modo" name="modo">
-          <option value="financiado">Financiado (en cuotas)</option>
-          <option value="contado">Al contado</option>
-          <option value="inversion">Como inversión</option>
-        </select>
-        <button class="btn btn-blue" type="submit">Solicitar información</button>
-        <p class="form-note">Al enviar aceptas que un asesor te contacte por WhatsApp.</p>
-      </form>
-    </div>
-  </div>
-</section>
 
 <!-- ===================== INTRO ===================== -->
 <section>
@@ -357,9 +500,9 @@
       </div>
       <div class="lifestyle-copy">
         <span class="eyebrow">Aquí tu familia vive mejor</span>
-        <h2>Un lugar seguro para que tus hijos crezcan.</h2>
-        <p class="lead">Calles tranquilas, parques con áreas verdes y una comunidad que recién empieza. El terreno que compras hoy es el patio donde tu familia juega mañana.</p>
-        <a class="btn btn-wa" href="https://wa.me/51900000000?text=Quiero%20info%20de%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener" style="margin-top:14px">⬤ Quiero un lote para mi familia</a>
+        <h2 style="margin-top:10px">Un lugar seguro para que tus hijos crezcan.</h2>
+        <p class="lead" style="margin-top:12px">Calles tranquilas, parques con áreas verdes y una comunidad que recién empieza. El terreno que compras hoy es el patio donde tu familia juega mañana.</p>
+        <a class="btn btn-wa" href="https://wa.me/51900000000?text=Quiero%20info%20de%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener" style="margin-top:18px"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Quiero un lote para mi familia</a>
       </div>
     </div>
   </div>
@@ -373,14 +516,14 @@
       <h2>Todo lo que tu nueva urbanización ya tiene.</h2>
     </div>
     <div class="ameni-grid">
-      <div class="ameni-item"><div class="ic">🛣️</div><h4>Pistas y veredas</h4><p>Calles pavimentadas</p></div>
-      <div class="ameni-item"><div class="ic">💡</div><h4>Alumbrado público</h4><p>Postes instalados</p></div>
-      <div class="ameni-item"><div class="ic">🌳</div><h4>Parques y áreas verdes</h4><p>Dos plazas listas</p></div>
-      <div class="ameni-item"><div class="ic">🧱</div><h4>Muro perimétrico</h4><p>Urbanización cerrada</p></div>
-      <div class="ameni-item"><div class="ic">🏋️</div><h4>Gimnasio al aire libre</h4><p>Zona de ejercicio</p></div>
-      <div class="ameni-item"><div class="ic">💧</div><h4>Servicios básicos</h4><p>Agua y desagüe*</p></div>
-      <div class="ameni-item"><div class="ic">📜</div><h4>Documentos en regla</h4><p>Compra segura</p></div>
-      <div class="ameni-item"><div class="ic">🚗</div><h4>Acceso directo</h4><p>Sobre la Panamericana</p></div>
+      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-road"/></svg></div><h4>Pistas y veredas</h4><p>Calles pavimentadas</p></div>
+      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-lamp"/></svg></div><h4>Alumbrado público</h4><p>Postes instalados</p></div>
+      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-tree"/></svg></div><h4>Parques y áreas verdes</h4><p>Dos plazas listas</p></div>
+      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-wall"/></svg></div><h4>Muro perimétrico</h4><p>Urbanización cerrada</p></div>
+      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-dumbbell"/></svg></div><h4>Gimnasio al aire libre</h4><p>Zona de ejercicio</p></div>
+      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-drop"/></svg></div><h4>Servicios básicos</h4><p>Agua y desagüe*</p></div>
+      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg></div><h4>Documentos en regla</h4><p>Compra segura</p></div>
+      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-car"/></svg></div><h4>Acceso directo</h4><p>Sobre la Panamericana</p></div>
     </div>
   </div>
 </section>
@@ -399,16 +542,16 @@
       </div>
       <div>
         <div class="loc-pills">
-          <div class="pill">🛣️ Frente a la Panamericana Norte <span class="d">acceso directo</span></div>
-          <div class="pill">🏭 Fábrica King Kong San Roque <span class="d">al frente</span></div>
-          <div class="pill">🎓 U. Nacional Pedro Ruiz Gallo <span class="d">a minutos</span></div>
-          <div class="pill">🎓 Universidad UTP <span class="d">a minutos</span></div>
-          <div class="pill">🛒 Sodimac Homecenter <span class="d">al lado</span></div>
-          <div class="pill">🏫 Colegio <span class="d">a pasos</span></div>
+          <div class="pill"><svg class="icon" aria-hidden="true"><use href="#i-road"/></svg>Frente a la Panamericana Norte <span class="d">acceso directo</span></div>
+          <div class="pill"><svg class="icon" aria-hidden="true"><use href="#i-factory"/></svg>Fábrica King Kong San Roque <span class="d">al frente</span></div>
+          <div class="pill"><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>U. Nacional Pedro Ruiz Gallo <span class="d">a minutos</span></div>
+          <div class="pill"><svg class="icon" aria-hidden="true"><use href="#i-cap"/></svg>Universidad UTP <span class="d">a minutos</span></div>
+          <div class="pill"><svg class="icon" aria-hidden="true"><use href="#i-cart"/></svg>Sodimac Homecenter <span class="d">al lado</span></div>
+          <div class="pill"><svg class="icon" aria-hidden="true"><use href="#i-school"/></svg>Colegio <span class="d">a pasos</span></div>
         </div>
         <div class="map-actions">
-          <a href="https://maps.google.com" target="_blank" rel="noopener">📍 Ver en Google Maps</a>
-          <a href="https://waze.com" target="_blank" rel="noopener">🧭 Cómo llegar (Waze)</a>
+          <a href="https://maps.google.com" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>Ver en Google Maps</a>
+          <a href="https://waze.com" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-nav"/></svg>Cómo llegar (Waze)</a>
         </div>
       </div>
     </div>
@@ -443,38 +586,38 @@
         <h3>Al contado</h3>
         <div class="price">S/ XX <small>/ lote</small></div>
         <ul>
-          <li>El mejor precio por m²</li>
-          <li>Lotes desde XX m²</li>
-          <li>Firma inmediata</li>
-          <li>Documentos en regla</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>El mejor precio por m²</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Lotes desde XX m²</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Firma inmediata</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Documentos en regla</li>
         </ul>
-        <a class="btn btn-outline" href="https://wa.me/51900000000?text=Quiero%20el%20precio%20al%20contado%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">Pedir precio al contado</a>
+        <a class="btn btn-outline" href="https://wa.me/51900000000?text=Quiero%20el%20precio%20al%20contado%20de%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener">Pedir precio al contado</a>
       </div>
       <div class="plan featured">
-        <div class="flag">Más elegido</div>
+        <div class="flag"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Más elegido</div>
         <h3>Financiado</h3>
         <div class="price">S/ XX <small>/ mes</small></div>
         <ul>
-          <li>Inicial desde <b>S/ XX</b></li>
-          <li>Hasta XX meses de plazo</li>
-          <li><b>Sin banco</b> ni intereses ocultos</li>
-          <li>Separa tu lote desde <b>S/ XX</b></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Inicial desde <b>S/ XX</b></li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Hasta XX meses de plazo</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><b>Sin banco</b> ni intereses ocultos</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Separa tu lote desde <b>S/ XX</b></li>
         </ul>
-        <a class="btn btn-wa" href="https://wa.me/51900000000?text=Quiero%20el%20plan%20financiado%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Quiero financiarlo</a>
+        <a class="btn btn-wa" href="https://wa.me/51900000000?text=Quiero%20el%20plan%20financiado%20de%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Quiero financiarlo</a>
       </div>
       <div class="plan">
         <h3>Inversión</h3>
         <div class="price">desde S/ XX</div>
         <ul>
-          <li>Compra para revender o alquilar</li>
-          <li>Alta plusvalía sobre vía principal</li>
-          <li>Zona universitaria con demanda</li>
-          <li>Asesoría para tu inversión</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Compra para revender o alquilar</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Alta plusvalía sobre vía principal</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Zona universitaria con demanda</li>
+          <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Asesoría para tu inversión</li>
         </ul>
-        <a class="btn btn-outline" href="https://wa.me/51900000000?text=Quiero%20invertir%20en%20Aurich%20Bonilla" target="_blank" rel="noopener">Hablar de inversión</a>
+        <a class="btn btn-outline" href="https://wa.me/51900000000?text=Quiero%20invertir%20en%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener">Hablar de inversión</a>
       </div>
     </div>
-    <div class="nobank">💡 <div><b>¿No calificas en el banco?</b> No importa. El financiamiento es directo con nosotros: solo tu DNI y tu cuota inicial.</div></div>
+    <div class="nobank"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><div><b>¿No calificas en el banco?</b> No importa. El financiamiento es directo con nosotros: solo tu DNI y tu cuota inicial.</div></div>
   </div>
 </section>
 
@@ -487,10 +630,10 @@
       <p class="lead">El mayor miedo al comprar un terreno es que te estafen. Por eso aquí todo queda por escrito y ante notario.</p>
     </div>
     <div class="legal-points">
-      <div class="lp"><span>📜</span><p><b>Partida registral y saneamiento.</b> Tu lote está identificado y documentado, no es informal.</p></div>
-      <div class="lp"><span>✍️</span><p><b>Contrato ante notario.</b> Plazos y montos claros, sin letra chica.</p></div>
-      <div class="lp"><span>🏛️</span><p><b>Empresa formal con RUC.</b> Tratas con una empresa real que responde.</p></div>
-      <div class="lp"><span>🤝</span><p><b>Te acompañamos hasta tu título.</b> Asesoría en todo el proceso de independización.</p></div>
+      <div class="lp"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg></div><p><b>Partida registral y saneamiento.</b> Tu lote está identificado y documentado, no es informal.</p></div>
+      <div class="lp"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-pen"/></svg></div><p><b>Contrato ante notario.</b> Plazos y montos claros, sin letra chica.</p></div>
+      <div class="lp"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-bank"/></svg></div><p><b>Empresa formal con RUC.</b> Tratas con una empresa real que responde.</p></div>
+      <div class="lp"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></div><p><b>Te acompañamos hasta tu título.</b> Asesoría en todo el proceso de independización.</p></div>
     </div>
   </div>
 </section>
@@ -515,10 +658,10 @@
 <section class="ameni">
   <div class="wrap">
     <div class="offer">
-      <span class="eyebrow" style="color:#bcd6f7">Beneficio del mes</span>
-      <h2>Refiere y gana.</h2>
+      <span class="eyebrow" style="color:#f1d79a">Beneficio del mes</span>
+      <h2 style="margin-top:8px">Refiere y gana.</h2>
       <p>¿Conoces a alguien buscando su lote? Recomiéndalo y, cuando compre, recibes un beneficio. Pregúntanos por las condiciones.</p>
-      <a class="btn btn-wa" href="https://wa.me/51900000000?text=Quiero%20info%20del%20programa%20Refiere%20y%20gana%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Quiero referir</a>
+      <a class="btn btn-wa" href="https://wa.me/51900000000?text=Quiero%20info%20del%20programa%20Refiere%20y%20gana%20de%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Quiero referir</a>
     </div>
   </div>
 </section>
@@ -529,9 +672,9 @@
     <div class="lifestyle">
       <div class="lifestyle-copy">
         <span class="eyebrow">El momento que estás esperando</span>
-        <h2>El día que tu lote por fin es tuyo.</h2>
-        <p class="lead">Familias como la tuya ya cumplieron el sueño de tener lo propio. Sin alquiler, sin miedo, con sus papeles en regla. El siguiente puedes ser tú.</p>
-        <a class="btn btn-blue" href="https://wa.me/51900000000?text=Quiero%20empezar%20mi%20compra%20en%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener" style="margin-top:14px">Quiero empezar hoy</a>
+        <h2 style="margin-top:10px">El día que tu lote por fin es tuyo.</h2>
+        <p class="lead" style="margin-top:12px">Familias como la tuya ya cumplieron el sueño de tener lo propio. Sin alquiler, sin miedo, con sus papeles en regla. El siguiente puedes ser tú.</p>
+        <a class="btn btn-blue" href="https://wa.me/51900000000?text=Quiero%20empezar%20mi%20compra%20en%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener" style="margin-top:18px">Quiero empezar hoy</a>
       </div>
       <div class="lifestyle-media">
         <img src="assets/emo-llaves.jpg" alt="Familia feliz recibiendo las llaves de su lote en la urbanización">
@@ -544,11 +687,11 @@
 <section class="faq">
   <div class="wrap">
     <div class="sec-head center"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que todos preguntan antes de comprar.</h2></div>
-    <details open><summary>¿Los lotes ya tienen pistas y servicios?</summary><p>Sí. La urbanización ya cuenta con pistas, veredas, alumbrado público, muro perimétrico y parques construidos. No es un terreno pelado.</p></details>
-    <details><summary>¿Puedo pagar en cuotas sin banco?</summary><p>Sí. El financiamiento es directo con la urbanización. No necesitas calificar en un banco: solo tu DNI y tu cuota inicial.</p></details>
-    <details><summary>¿Qué documentos recibo?</summary><p>Firmas un contrato ante notario y te acompañamos en todo el proceso de saneamiento e independización de tu lote.</p></details>
-    <details><summary>¿Dónde queda exactamente?</summary><p>En Lambayeque, frente a la Panamericana Norte, al frente de la fábrica King Kong San Roque y a minutos de la UNPRG y la UTP. Te enviamos la ubicación exacta por WhatsApp.</p></details>
-    <details><summary>¿Cuánto cuesta separar un lote?</summary><p>Puedes separar tu lote desde S/ XX. Escríbenos y te armamos el plan que se acomode a tu presupuesto.</p></details>
+    <details open><summary>¿Los lotes ya tienen pistas y servicios?<svg class="chev icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>Sí. La urbanización ya cuenta con pistas, veredas, alumbrado público, muro perimétrico y parques construidos. No es un terreno pelado.</p></details>
+    <details><summary>¿Puedo pagar en cuotas sin banco?<svg class="chev icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>Sí. El financiamiento es directo con la urbanización. No necesitas calificar en un banco: solo tu DNI y tu cuota inicial.</p></details>
+    <details><summary>¿Qué documentos recibo?<svg class="chev icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>Firmas un contrato ante notario y te acompañamos en todo el proceso de saneamiento e independización de tu lote.</p></details>
+    <details><summary>¿Dónde queda exactamente?<svg class="chev icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>En Lambayeque, frente a la Panamericana Norte, al frente de la fábrica King Kong San Roque y a minutos de la UNPRG y la UTP. Te enviamos la ubicación exacta por WhatsApp.</p></details>
+    <details><summary>¿Cuánto cuesta separar un lote?<svg class="chev icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>Puedes separar tu lote desde S/ XX. Escríbenos y te armamos el plan que se acomode a tu presupuesto.</p></details>
   </div>
 </section>
 
@@ -556,22 +699,22 @@
 <footer>
   <div class="wrap">
     <div>
-      <img src="assets/logo-horizontal.svg" alt="Urbanización Aurich Bonilla · Gilberto · Lambayeque" style="height:62px;width:auto;margin-bottom:12px">
+      <img src="assets/logo-horizontal.svg" alt="Urbanización Gilberto Aurich Bonilla · Lambayeque" style="height:62px;width:auto;margin-bottom:12px">
       <p>Urbanización con habilitación construida en Lambayeque, frente a la Panamericana Norte. Lotes con documentos en regla y financiamiento directo.</p>
-      <a class="libro" href="#" target="_blank" rel="noopener">📕 Libro de Reclamaciones</a>
+      <a class="libro" href="#" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg>Libro de Reclamaciones</a>
     </div>
     <div>
       <strong style="display:block;margin-bottom:8px">Contacto</strong>
-      WhatsApp: <a href="https://wa.me/51900000000">+51 9XX XXX XXX</a><br>
+      WhatsApp: <a class="link" href="https://wa.me/51900000000">+51 9XX XXX XXX</a><br>
       Email: ventas@aurichbonilla.pe<br>
       Atención: Lun a Dom, 9am – 6pm<br>
       Lambayeque, Perú
     </div>
     <div>
       <strong style="display:block;margin-bottom:8px">Enlaces</strong>
-      <a href="#planes">Planes de pago</a><br>
-      <a href="#contacto">Solicitar información</a><br>
-      <a href="https://maps.google.com" target="_blank" rel="noopener">Ver en Google Maps</a>
+      <a class="link" href="#planes">Planes de pago</a><br>
+      <a class="link" href="#contacto">Solicitar información</a><br>
+      <a class="link" href="https://maps.google.com" target="_blank" rel="noopener">Ver en Google Maps</a>
     </div>
     <div class="legalrow">
       © <span id="yr"></span> Urbanización Gilberto Aurich Bonilla · [Razón Social S.A.C.] · RUC 20XXXXXXXXX · Lambayeque, Perú. Las imágenes 3D son referenciales del proyecto proyectado. Precios y condiciones sujetos a disponibilidad vigente. *Servicios básicos según etapa de habilitación.
@@ -581,7 +724,7 @@
 
 <!-- ===================== STICKY WHATSAPP (móvil) ===================== -->
 <div class="wa-float">
-  <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20info%20y%20precios%20de%20Aurich%20Bonilla" target="_blank" rel="noopener">⬤ Cotizar mi lote por WhatsApp</a>
+  <a class="btn btn-wa" href="https://wa.me/51900000000?text=Hola,%20quiero%20info%20y%20precios%20de%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Cotizar mi lote por WhatsApp</a>
 </div>
 
 <script>
