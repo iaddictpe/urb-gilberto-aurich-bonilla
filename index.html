@@ -82,6 +82,8 @@
   .hero-copy h1{color:var(--ink);font-size:clamp(2rem,6vw,3.1rem);margin-bottom:14px}
   .hero-copy h1 b{color:var(--blue)}
   .hero-copy p.lead{color:var(--muted);max-width:560px}
+  .hero-tagline{display:inline-flex;align-items:center;gap:8px;color:var(--blue);font-size:1.12rem;font-weight:700;margin-bottom:14px}
+  .hero-tagline .icon{width:20px;height:20px;color:var(--gold)}
   .hero-trust{display:grid;gap:9px;margin-top:20px}
   .hero-trust span{display:inline-flex;align-items:center;gap:9px;font-size:.92rem;font-weight:600;color:var(--ink)}
   .hero-trust .icon{width:19px;height:19px;color:var(--green)}
@@ -109,7 +111,7 @@
 
   /* ---------- QUICK FACTS BAR ---------- */
   .facts{background:var(--soft);border-bottom:1px solid var(--line)}
-  .facts .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border-radius:var(--radius);overflow:hidden;margin-top:34px;margin-bottom:34px;box-shadow:var(--shadow-sm)}
+  .facts .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-radius:var(--radius);overflow:hidden;margin-top:34px;margin-bottom:34px;box-shadow:var(--shadow-sm)}
   .fact{background:#fff;padding:18px 16px;text-align:center}
   .fact .v{font-size:1.15rem;font-weight:700;color:var(--blue)}
   .fact .l{font-size:.74rem;color:var(--muted);font-weight:500;margin-top:3px}
@@ -249,7 +251,7 @@
     .hero .wrap{padding:52px 20px 56px}
     .hero-grid{grid-template-columns:1.02fr .98fr;gap:46px;align-items:center}
     .hero-photo img{aspect-ratio:4/3}
-    .facts .wrap{grid-template-columns:repeat(4,1fr)}
+    .facts .wrap{grid-template-columns:repeat(3,1fr)}
     .cards{grid-template-columns:repeat(3,1fr)}
     .ameni-grid{grid-template-columns:repeat(4,1fr)}
     .lifestyle{grid-template-columns:1.1fr .9fr}
@@ -397,11 +399,12 @@
           <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg>Lotes de 120 m² · SUNARP</span>
         </div>
         <h1>Compra tu lote y <b>construye tu sueño</b>.</h1>
-        <p class="lead">Lotes de <b>120 m² independizados en SUNARP – Chiclayo</b>, cada uno con su respectiva partida registral. Obras completas y totalmente asfaltadas, en la mejor ubicación de Lambayeque.</p>
+        <p class="hero-tagline"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>En la mejor ubicación de Lambayeque</p>
+        <p class="lead">Lotes de <b>120 m² independizados en SUNARP – Chiclayo</b>, cada uno con su respectiva partida registral.</p>
         <div class="hero-trust">
-          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Cada lote con su partida registral</span>
-          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Obras completas y totalmente asfaltadas</span>
-          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Seguridad total y muro perimétrico</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>La entrada a la urbanización totalmente asfaltada</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Obras completas</span>
+          <span><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Seguridad total con muro perimétrico</span>
         </div>
         <div class="hero-cta">
           <a class="btn btn-wa btn-lg" href="https://wa.me/51900000000?text=Hola,%20quiero%20información%20y%20precios%20de%20la%20Urbanización%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Cotiza tu lote por WhatsApp</a>
@@ -436,8 +439,7 @@
   <div class="wrap">
     <div class="fact"><div class="v">120 m²</div><div class="l">lotes independizados</div></div>
     <div class="fact"><div class="v">Obras completas</div><div class="l">listo para construir</div></div>
-    <div class="fact"><div class="v">Asfaltado</div><div class="l">obra completa</div></div>
-    <div class="fact"><div class="v">Partida registral</div><div class="l">inscrito en SUNARP</div></div>
+    <div class="fact"><div class="v">Partida registral</div><div class="l">inscrito en SUNARP – Chiclayo</div></div>
   </div>
 </div>
 
@@ -445,7 +447,7 @@
 <section><div class="wrap"><div class="sec-head center">
   <span class="eyebrow">No compras una promesa</span>
   <h2>Una urbanización que ya está construida.</h2>
-  <p class="lead">Obra que ya puedes caminar: pistas, parques y alumbrado terminados. Aquí construyes tu casa desde hoy.</p>
+  <p class="lead">Una obra real que ya puedes visitar y caminar.</p>
 </div></div></section>
 <section style="padding-top:0">
   <div class="wrap">
@@ -456,11 +458,11 @@
       </div>
       <div class="card">
         <img src="assets/zona-gimnasio.jpg" alt="Zona de gimnasio al aire libre y muro perimétrico">
-        <div class="c-body"><h3>Gimnasio al aire libre</h3><p>Zona de ejercicio y muro perimétrico que cierra y protege toda la urbanización.</p></div>
+        <div class="c-body"><h3>Gimnasio al aire libre</h3><p>Zona de ejercicio.</p></div>
       </div>
       <div class="card">
         <img src="assets/vista-colegio.jpg" alt="Calles pavimentadas junto a un colegio">
-        <div class="c-body"><h3>Pistas, veredas y alumbrado</h3><p>Calles pavimentadas y postes de luz instalados. Llegas a tu lote por pista, no por trocha.</p></div>
+        <div class="c-body"><h3>Pistas, veredas y alumbrado público</h3></div>
       </div>
     </div>
   </div>
@@ -491,14 +493,12 @@
       <h2>Todo lo que tu nueva urbanización ya tiene.</h2>
     </div>
     <div class="ameni-grid">
-      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-road"/></svg></div><h4>Totalmente asfaltada</h4><p>Pistas y veredas</p></div>
       <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-drop"/></svg></div><h4>Agua y desagüe</h4><p>Redes y conexiones domiciliarias</p></div>
       <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-lamp"/></svg></div><h4>Alumbrado público</h4><p>Postes instalados</p></div>
       <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-tree"/></svg></div><h4>Áreas verdes</h4><p>Parques y esparcimiento</p></div>
       <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-school"/></svg></div><h4>Juegos infantiles</h4><p>Para los más chicos</p></div>
       <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-dumbbell"/></svg></div><h4>Gimnasio al aire libre</h4><p>Zona de ejercicio</p></div>
       <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-wall"/></svg></div><h4>Muro perimétrico</h4><p>Seguridad total</p></div>
-      <div class="ameni-item"><div class="ic"><svg class="icon" aria-hidden="true"><use href="#i-doc"/></svg></div><h4>Partida registral</h4><p>Independizado en SUNARP</p></div>
     </div>
   </div>
 </section>
@@ -580,19 +580,8 @@
       <span class="eyebrow" style="color:#f1d79a">Da el primer paso hoy</span>
       <h2 style="margin-top:8px">Asegura tu lote antes de que suba de precio.</h2>
       <p>Familias como la tuya ya cumplieron el sueño de tener lo propio. Escríbenos por WhatsApp y te enviamos precios, plan de pago y la ubicación exacta. Sin compromiso.</p>
-      <a class="btn btn-wa btn-lg" href="https://wa.me/51900000000?text=Hola,%20quiero%20información%20de%20la%20Urbanización%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Escríbenos por WhatsApp</a>
+      <a class="btn btn-wa btn-lg" href="https://wa.me/51900000000?text=Hola,%20quiero%20mi%20lote%20en%20la%20Urbanización%20Gilberto%20Aurich%20Bonilla" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg>Quiero mi lote</a>
     </div>
-  </div>
-</section>
-
-<!-- ===================== FAQ ===================== -->
-<section class="faq">
-  <div class="wrap">
-    <div class="sec-head center"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que todos preguntan antes de comprar.</h2></div>
-    <details open><summary>¿Los lotes están independizados y con partida registral?<svg class="chev icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>Sí. Cada lote de 120 m² está independizado en SUNARP – Chiclayo, con su propia partida registral. Todos los documentos están debidamente en regla.</p></details>
-    <details><summary>¿Qué obras ya tiene la urbanización?<svg class="chev icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>Obra completa y totalmente asfaltada, con redes de agua, desagüe y alcantarillado con conexiones domiciliarias, alumbrado público, áreas verdes, juegos infantiles, gimnasio al aire libre y muro perimétrico.</p></details>
-    <details><summary>¿Qué documentos recibo?<svg class="chev icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>La separación del lote se hace ante notaría pública y te acompañamos en todo el proceso de compra-venta hasta tu título de propiedad.</p></details>
-    <details><summary>¿Dónde queda exactamente?<svg class="chev icon" aria-hidden="true"><use href="#i-chevron"/></svg></summary><p>En la mejor ubicación de Lambayeque: a 4 cuadras de la fábrica San Roque, a 2 minutos de la UNPRG y a 12 minutos de Chiclayo (Mall Aventura, USAT, UTP y Hospital Regional). Te enviamos la ubicación exacta por WhatsApp.</p></details>
   </div>
 </section>
 
